@@ -67,3 +67,11 @@ contains(V, [V]). 		% return true
 contains(V, [V | _]). 		% return true
 contains(V, [H | T]) :- V \= H, contains(V, T).
 
+% Склеивание списка (A) со списком (B)
+% concat(A, B, R).
+% Как использовать:
+% 1) concat([1,2], [3,4], X).
+% 2) concat([1,2], X, [1, 2, 3, 4]).
+% 3) concat(X, [3,4], [1, 2, 3, 4]).
+concat([], B, B).
+concat([H|T], B, [H | TR]) :- concat(T,B,TR).
