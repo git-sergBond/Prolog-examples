@@ -40,3 +40,11 @@ inc(A, B) :- number(B), !, A is B - 1.
 % count([1, 2, 3, 'hello'], R).
 count([],0).
 count([H|T], R):-count(T, TR), R is TR + 1.
+
+% Генерация массива заполненным одинаковымми значениями
+% repeat(10, 0, R).
+repeat(0, _, []).
+repeat(N, V, [H | T]) :- 
+	N1 is N - 1,
+	repeat(N1, V, T),
+	H = V.
