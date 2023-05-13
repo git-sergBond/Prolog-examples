@@ -88,3 +88,10 @@ map([H | T], F, [HR | TR]) :-
 	G =.. [F, H, HR], 	% Подготовка цели G с аргументами H и HR
 	call(G),		% Выполнение цели G
 	map(T, F, TR).
+
+% zip (AS, BS, (A, B)s)
+% Как использовать:
+% zip([1, 2, 3], [hello, world], R).
+zip([], _, []).
+zip(_, [], []).
+zip([A|AS], [B|BS], [(A, B) | CS]) :- zip(AS, BS, CS).
