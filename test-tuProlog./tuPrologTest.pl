@@ -84,7 +84,7 @@ concat([H|T], B, [H | TR]) :- concat(T,B,TR).
 % 1) map([1,2,3,4], inc, X).
 % 2) map(Y, inc, [2,3,4,5]).
 map([], _, []).
-map([H | T], F, [HR, TR]) :-
+map([H | T], F, [HR | TR]) :-
 	G =.. [F, H, HR], 	% Подготовка цели G с аргументами H и HR
 	call(G),		% Выполнение цели G
 	map(T, F, TR).
