@@ -1,1 +1,1 @@
-# Prolog-examples
+Examples on Prolog programming language
