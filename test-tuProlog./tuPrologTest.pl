@@ -95,3 +95,26 @@ map([H | T], F, [HR | TR]) :-
 zip([], _, []).
 zip(_, [], []).
 zip([A|AS], [B|BS], [(A, B) | CS]) :- zip(AS, BS, CS).
+
+% Проверка, что все элементы списка различны.
+% Как использовать:
+% all_distinct([1,2,3]). -> true
+% all_distinct([2,2,2]). -> false
+all_distinct([]).
+all_distinct([H | T]) :- all_distinct(T), \+ member(H, T).
+
+% Проверка, что все элементы списка присутствуют в другом списке.
+% Как использовать:
+% all_members([1,2,3], [3,2,1]).
+all_members([], _).
+all_members([H | T], BS) :- member(H, BS), all_members(T, BS).
+
+% Генерация чисел в диапазоне от N до L
+% range(N, L, R).
+% Как использовать:
+% range(5, 10, R).
+range(N, N, []).
+range(N, L, [N | T]) :- 
+	N < L, 
+	N1 is N + 1,
+	range(N1, L, T).
