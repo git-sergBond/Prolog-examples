@@ -10,8 +10,14 @@ nondeterm parent(имя, имя) 	% РОДИТЕЛЬ
 nondeterm man(имя) 		% МУЖЧИНА
 nondeterm woman(имя) 		% ЖЕНЩИНА
 nondeterm married(имя, имя) 	% СУПРУГИ
-nondeterm mother(имя,имя)
 nondeterm father(имя,имя)
+% А) близкие кровные родственники;
+% 2. мать (mother)
+nondeterm mother(имя,имя)
+% Б) неблизкие кровные родственники;
+% 8. троюродная сестра (second_coustin_sister)
+% С) родственники по закону (англ.: in law).
+% 8. свояченица [сестра жены] (wifes_sister)
 
 clauses
 parent("Саша", "Света").
