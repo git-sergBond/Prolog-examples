@@ -18,6 +18,7 @@ nondeterm mother(имя,имя)
 % 8. троюродная сестра (second_coustin_sister)
 % С) родственники по закону (англ.: in law).
 % 8. свояченица [сестра жены] (wifes_sister)
+nondeterm wifes_sister(имя,имя)
 
 clauses
 parent("Саша", "Света").
@@ -45,6 +46,8 @@ married(X, Y):-parent(X,C),man(X),parent(Y,C),woman(Y).
 mother(X,Y):- parent(X,Y),woman(X).
 father(X,Y):- parent(X,Y),man(X).
 
+wifes_sister(W,S):-mother(W,_),woman(S),parent(P,S),parent(P,W), W<>S.
+
 goal
 % Ответ:
-married(X,Y).
+wifes_sister(W,S).
